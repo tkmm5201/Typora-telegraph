@@ -1,10 +1,10 @@
 import os
 import sys
 import requests
+import pyperclip
 
 def upload_image(image_path):
-    # 使用你的telegraph图床链接末尾“/upload”
-    url = "图床上传接口/upload"
+    url = "图床上传接口xxxxx"
     
     if not os.path.isfile(image_path):
         print("Error: File does not exist.")
@@ -19,6 +19,7 @@ def upload_image(image_path):
                 try:
                     result = response.json()
                     print(f"Response JSON: {result}")
+                    
                     image_url = result.get('data') 
                     if image_url:
                         return image_url
@@ -44,6 +45,8 @@ if __name__ == "__main__":
     image_url = upload_image(image_path)
     
     if image_url:
+        pyperclip.copy(image_url)
+        print("Image URL copied to clipboard!")
         print(image_url)
     else:
         print("Upload failed.")
