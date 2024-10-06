@@ -3,7 +3,7 @@ import sys
 import requests
 
 def upload_image(image_path):
-    # 图床上传接口
+    # 使用你的telegraph图床链接末尾“/upload”
     url = "图床上传接口/upload"
     
     if not os.path.isfile(image_path):
